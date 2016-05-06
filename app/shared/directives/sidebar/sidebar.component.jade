@@ -1,0 +1,9 @@
+.ui.vertical.menu.fixed.top.inverted(style="width:300px;")
+	.item
+		h2.ui.center.aligned.icon.green.header
+			i.student.icon
+			|	Kasetsart
+	.item(*ngIf="currentUser")
+		| Login
+	.item(*ngIf="!currentUser")
+		| Not Login
