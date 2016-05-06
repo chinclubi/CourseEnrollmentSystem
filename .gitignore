@@ -1,5 +1,4 @@
 node_modules/
 vendors/semantic/
 typings/
-app/**.js
-app/**.map
+build/
