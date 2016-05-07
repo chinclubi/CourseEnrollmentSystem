@@ -1,0 +1,6 @@
+.ui.sticky
+	.ui.menu
+		.ui.category.search.item
+			.ui.transparent.massive.icon.input
+				input(type="text", placeholder="Search for Courses...", [(ngModel)]="keywords", (ngModelChange)="onChange($event)")
+				i.search.link.icon
