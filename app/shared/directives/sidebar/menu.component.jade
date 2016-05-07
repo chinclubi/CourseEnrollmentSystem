@@ -1,19 +1,30 @@
-div(*ngIf="currentUser.isLogin")
-	.ui.divider
-	.ui.secondary.vertical.pointing.menu.inverted(style="width:100%;")
+.ui(*ngIf="currentUser.isLogin")
+	.ui.secondary.vertical.menu(style="width:100%;")
+		.item
+			.ui.inverted.massive.icon.input
+				input(type="text", placeholder="Search Courses")
+				i.search.icon
+	.ui.secondary.vertical.menu.inverted(style="width:100%;")
 		a.item((click)="goToInformation()", [ngClass]="{active: router.isRouteActive(router.generate(['/Information']))}")
 			i.info.circle.icon 
 			| Information
 		a.item((click)="goToRegistration()", [ngClass]="{active: router.isRouteActive(router.generate(['/Registration']))}")
-			i.add.square.icon
-			| Register
-		a.item((click)="logout()")
-			i.sign.out.icon
-			| Logout
-	.ui.inverted.segment(style="position: absolute; bottom: 0px;")
+			i.browser.icon
+			| Browse Courses
+		a.item 
+			i.code.icon
+			| Export JSON
+	.ui.basic.segment(style="position: absolute; bottom: 0px; width: 100%;")
 		h2.ui.header.inverted
 			img.ui.circular.image(src="assets/imgs/avatar/elliot.jpg") 
 			.content
 				| {{currentUser.name}}
-				.sub.header
-					| Student ID: {{currentUser.id}}
+				.sub.header.inverted
+					| {{currentUser.id}}
+		.ui.buttons.fluid.large
+			button.ui.button 
+				i.edit.icon
+				| Edit
+			button.ui.button.red((click)="logout()")
+				i.lock.icon
+				| Logout

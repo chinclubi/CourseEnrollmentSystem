@@ -1,0 +1,18 @@
+.right.ui.rail
+	.ui.sticky
+		| Menu
+.ui.one.cards.stackable#content
+	.card(*ngFor="let course of courses")
+		.content
+			.header
+				| {{course.name}}
+			.meta {{course.id}}
+			.description
+				span.ellipsis-2lines {{course.description}}
+		.ui.bottom.attached.buttons
+			button.ui.button
+				i.add.icon
+				| Edit
+			button.ui.button
+				i.add.icon
+				| Add

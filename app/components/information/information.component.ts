@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { RouteData } from '@angular/router-deprecated'
+import { Http, Response } from '@angular/http'
 
 import { User } from '../../shared/class/user'
 import { UserService } from '../../shared/services/user.service'
