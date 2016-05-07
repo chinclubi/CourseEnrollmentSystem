@@ -4,6 +4,7 @@ export class Course {
 		public name: string,
 		public description: string,
 		public credit: any,
-		public prereq: Array<any>
+		public prereq: Array<any>,
+		public sections: Array<any>
 	) {}
 }
