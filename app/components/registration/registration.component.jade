@@ -1,18 +1,25 @@
-.right.ui.rail
-	.ui.sticky
-		| Menu
-.ui.one.cards.stackable#content
-	.card(*ngFor="let course of courses")
+search-bar([keywords]="keywords", (onChange)="onKeywordChange($event)")
+.ui.basic.segment#content
+	.ui.one.cards.stackable
+		.card(*ngFor="let course of courses | search:keywords")
+			.content
+				.header
+					| {{course.name}}
+				.meta {{course.id}}
+				.description
+					span.ellipsis-2lines {{course.description}}
+			.ui.bottom.attached.buttons
+				button.ui.button
+					i.add.icon
+					| Edit
+				button.ui.button
+					i.add.icon
+					| Add
+	.ui.info.icon.message([ngClass]="{hidden: isEmpty}")
+		i.inbox.icon
 		.content
 			.header
-				| {{course.name}}
-			.meta {{course.id}}
-			.description
-				span.ellipsis-2lines {{course.description}}
-		.ui.bottom.attached.buttons
-			button.ui.button
-				i.add.icon
-				| Edit
-			button.ui.button
-				i.add.icon
-				| Add
+				| Cannot find your coures?
+			ul.list
+				li Try to search with course's name?
+				li Try to search with course's id? 
