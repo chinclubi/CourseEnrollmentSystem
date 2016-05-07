@@ -1,5 +1,5 @@
 import { Component, OnInit } 	from '@angular/core';
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
+import { RouteConfig, Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 import { InformationComponent } from '../information/information.component';
 import { RegistrationComponent } from '../registration/registration.component';
@@ -38,10 +38,16 @@ import { User } from '../../shared/class/user';
 export class HomeComponent implements OnInit {
 	currentUser = new User('', false);
 
+	constructor(
+		private router: Router) { }
+
 	ngOnInit() {
 		if (localStorage.getItem('user')){
 			this.currentUser.id = localStorage.getItem('user')
 			this.currentUser.isLogin = true
+			this.router.navigate(['Information', {}])
+		} else {
+			this.router.navigate(['Login', {}])
 		}
 	}
 }
