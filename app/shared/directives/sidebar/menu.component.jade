@@ -1,18 +1,19 @@
 div(*ngIf="currentUser.isLogin")
-	.ui.inverted.segment
-		h2.ui.header.inverted
-			img.ui.circular.image(src="assets/imgs/avatar/elliot.jpg") 
-			.content
-				| Chin Clu-bi
-				.sub.header
-					| Student ID: {{currentUser.id}}
+	.ui.divider
 	.ui.secondary.vertical.pointing.menu.inverted(style="width:100%;")
-		a.active.item
+		a.item((click)="goToInformation()", [ngClass]="{active: router.isRouteActive(router.generate(['/Information']))}")
 			i.info.circle.icon 
 			| Information
-		a.item 
+		a.item((click)="goToRegistration()", [ngClass]="{active: router.isRouteActive(router.generate(['/Registration']))}")
 			i.add.square.icon
 			| Register
 		a.item((click)="logout()")
 			i.sign.out.icon
 			| Logout
+	.ui.inverted.segment(style="position: absolute; bottom: 0px;")
+		h2.ui.header.inverted
+			img.ui.circular.image(src="assets/imgs/avatar/elliot.jpg") 
+			.content
+				| {{currentUser.name}}
+				.sub.header
+					| Student ID: {{currentUser.id}}

@@ -1,6 +1,7 @@
 .pusher
 	.full.height
 		.toc
-			sidebar([currentUser]="currentUser")
+			sidebar
 		.article
-			router-outlet
+			.ui.basic.segment
+				router-outlet

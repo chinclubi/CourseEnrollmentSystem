@@ -1,29 +1,45 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router-deprecated';
 
 import { User } from '../../class/user';
+import { UserService } from '../../services/user.service';
 
 @Component({
 	selector: 'sidebar',
 	templateUrl: 'build/views/sidebar.component.html'
 })
 
-export class SidebarComponent {
-	@Input() currentUser: User;
+export class SidebarComponent implements OnInit {
+	currentUser: User;
 
 	constructor(
-		private router: Router) { }
+		private router: Router,
+		private userService: UserService) { }
+
+	ngOnInit() {
+		this.currentUser = this.userService.getUser()
+	}
 
 	onSubmit() {
-		this.currentUser.isLogin = true;
-		localStorage.setItem('user', this.currentUser.id);
-		this.router.navigate(['Information', {}])
+		this.userService.setUser({
+			id: this.currentUser.id,
+			isLogin: true
+		})
+		localStorage.setItem('user', this.currentUser.id)
+		this.goToInformation()
 	}
 
 	logout() {
-		this.currentUser.isLogin = false
-		this.currentUser.id = ''
+		this.userService.logout()
 		localStorage.removeItem('user')
 		this.router.navigate(['Login', {}])
+	}
+
+	goToInformation() {
+		this.router.navigate(['Information', {}]);
+	}
+
+	goToRegistration() {
+		this.router.navigate(['Registration', {}]);
 	}
 }

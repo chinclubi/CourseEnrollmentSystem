@@ -7,13 +7,14 @@ import { LoginComponent }	from '../login/login.component';
 import { SidebarComponent}  from '../../shared/directives/sidebar/sidebar.component';
 
 import { User } from '../../shared/class/user';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
 	selector: 'hci-app',
 	templateUrl: 'build/views/home.component.html',
 	styleUrls: ['build/styles/home.component.css'],
 	directives: [ROUTER_DIRECTIVES, LoginComponent, SidebarComponent],
-	providers: [ROUTER_PROVIDERS]
+	providers: [ROUTER_PROVIDERS, UserService]
 })
 
 @RouteConfig([
@@ -36,17 +37,22 @@ import { User } from '../../shared/class/user';
 ])
 
 export class HomeComponent implements OnInit {
-	currentUser = new User('', false);
+	currentUser: User;
 
 	constructor(
-		private router: Router) { }
+		private router: Router,
+		private userService: UserService) { }
 
 	ngOnInit() {
-		if (localStorage.getItem('user')){
-			this.currentUser.id = localStorage.getItem('user')
-			this.currentUser.isLogin = true
+		this.currentUser = this.userService.getUser()
+		if (localStorage.getItem('user')) {
+			let id = localStorage.getItem('user')
+			let isLogin = true
+			this.userService.setUser({ id: id, isLogin: isLogin })
 			this.router.navigate(['Information', {}])
+			console.log('Information')
 		} else {
+			console.log('Login')
 			this.router.navigate(['Login', {}])
 		}
 	}
