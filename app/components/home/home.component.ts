@@ -1,4 +1,4 @@
-import { Component } 	from '@angular/core';
+import { Component, OnInit } 	from '@angular/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 import { LoginComponent }	from '../login/login.component';
@@ -14,6 +14,14 @@ import { User } from '../../shared/class/user';
 	providers: [ROUTER_PROVIDERS]
 })
 
-export class HomeComponent {
-	currentUser: User;
+export class HomeComponent implements OnInit {
+	currentUser = new User('', false);
+
+	ngOnInit() {
+		console.log(localStorage.getItem('user'))
+		if (localStorage.getItem('user')){
+			this.currentUser.id = localStorage.getItem('user')
+			this.currentUser.isLogin = true
+		}
+	}
 }

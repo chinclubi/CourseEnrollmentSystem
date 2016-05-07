@@ -1,6 +1,6 @@
 .pusher
 	.full.height
 		.toc
-			sidebar
+			sidebar([currentUser]="currentUser")
 		.article
-			content-component
+			| {{currentUser}}
