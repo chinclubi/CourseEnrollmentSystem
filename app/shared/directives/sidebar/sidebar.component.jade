@@ -1,9 +1,9 @@
-.ui.vertical.menu.fixed.top.inverted(style="width:300px;")
-	.item
-		h2.ui.center.aligned.icon.green.header
-			i.student.icon
-			|	Kasetsart
-	.item(*ngIf="currentUser")
-		| Login
-	.item(*ngIf="!currentUser")
-		| Not Login
+.ui.inverted.segment
+	.ui.list.relaxed.inverted(style="width:100%;")
+		.item
+			h1.ui.center.aligned.green.icon.header
+				i.student.icon
+				.content Kasetsart University
+					.sub.header Enrollment System
+include menu.component.jade
+include signin.component.jade

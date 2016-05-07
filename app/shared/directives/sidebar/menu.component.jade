@@ -1,0 +1,18 @@
+div(*ngIf="currentUser.isLogin")
+	.ui.inverted.segment
+		h2.ui.header.inverted
+			img.ui.circular.image(src="assets/imgs/avatar/elliot.jpg") 
+			.content
+				| Chin Clu-bi
+				.sub.header
+					| Student ID: {{currentUser.id}}
+	.ui.secondary.vertical.pointing.menu.inverted(style="width:100%;")
+		a.active.item
+			i.info.circle.icon 
+			| Information
+		a.item 
+			i.add.square.icon
+			| Register
+		a.item((click)="logout()")
+			i.sign.out.icon
+			| Logout

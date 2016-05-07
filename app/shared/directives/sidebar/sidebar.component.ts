@@ -9,4 +9,15 @@ import { User } from "../../class/user";
 
 export class SidebarComponent {
 	@Input() currentUser: User;
+
+	onSubmit() {
+		this.currentUser.isLogin = true;
+		localStorage.setItem('user', this.currentUser.id);
+	}
+
+	logout() {
+		this.currentUser.isLogin = false
+		this.currentUser.id = ''
+		localStorage.removeItem('user')
+	}
 }

@@ -1,0 +1,26 @@
+div(*ngIf="!currentUser.isLogin")
+	.ui.horizontal.divider.header.inverted
+		i.sign.in.icon
+		| Sign in
+	.ui.inverted.segment
+		.ui.list.relaxed.inverted(style="width:100%;")
+			.item
+				.content
+					form(#signInForm="ngForm", (ngSubmit)="onSubmit()")
+						.ui.form
+							.field
+								.ui.left.icon.input.content
+									input(type="text", pattern="^[0-9]{10}$", placeholder="Student ID ex.56XXXXXXXX",[(ngModel)]="currentUser.id" ,ngControl="studentId" , required)
+									i.user.icon
+							.field
+								.ui.left.icon.input.content
+									input(type="password", placeholder="Password", required)
+									i.lock.icon
+							button.ui.fluid.large.submit.button(type="submit") Login
+	.ui.divider
+	.ui.inverted.segment
+		.ui.info.icon.message
+			i.help.circle.icon
+			.content
+				.header How to login for tester?
+				p Field you student id. Random some password. Then, click "Login" button
