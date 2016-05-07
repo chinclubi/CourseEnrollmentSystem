@@ -9,7 +9,7 @@
 }
 .full.height > .toc {
   position: fixed;
-  z-index: 1;
+  z-index: 9999;
   background-color: #011627;
   width: 300px;
   -webkit-box-flex: 0;
