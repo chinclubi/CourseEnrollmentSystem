@@ -3,7 +3,7 @@ import { User } from '../class/user'
 
 @Injectable()
 export class UserService {
-	currentUser = new User('', false, 'Chin Clu-bi')
+	currentUser = new User('', false, 'Chin Clu-bi', [])
 
 	getUser() {
 		return this.currentUser
