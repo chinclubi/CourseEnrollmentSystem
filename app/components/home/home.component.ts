@@ -4,7 +4,8 @@ import { RouteConfig, Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angul
 import { InformationComponent } from '../information/information.component'
 import { RegistrationComponent } from '../registration/registration.component'
 import { LoginComponent }	from '../login/login.component'
-import { SidebarComponent}  from '../../shared/directives/sidebar/sidebar.component'
+import { SidebarComponent }  from '../../shared/directives/sidebar/sidebar.component'
+import { EnrollComponent } from '../enroll/enroll.component'
 
 import { User } from '../../shared/class/user'
 import { UserService } from '../../shared/services/user.service'
@@ -14,7 +15,7 @@ import { CourseService } from '../../shared/services/course.service'
 	selector: 'hci-app',
 	templateUrl: 'build/views/home.component.html',
 	styleUrls: ['build/styles/home.component.css'],
-	directives: [ROUTER_DIRECTIVES, LoginComponent, SidebarComponent],
+	directives: [ROUTER_DIRECTIVES, LoginComponent, SidebarComponent, EnrollComponent],
 	providers: [ROUTER_PROVIDERS, UserService, CourseService]
 })
 
@@ -30,7 +31,7 @@ import { CourseService } from '../../shared/services/course.service'
 	component: InformationComponent
 },
 {
-	path: '/registration',
+	path: '/courses',
 	name: 'Registration',
 	component: RegistrationComponent,
 	useAsDefault: true
