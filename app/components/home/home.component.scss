@@ -27,8 +27,7 @@
   overflow: hidden;
   will-change: transform;
 }
-.full.height > .enroll {
-  position: fixed;
+.article .enroll {
   z-index: 9999;
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 auto;
@@ -36,19 +35,9 @@
   flex: 0 0 auto;
   min-height: 100%;
   right: 0;
-  width: 400px;
+  width: 25%;
   border-left: 1px solid rgba(34,36,38,.15);
   padding: 1rem 1rem 0 1.5rem;
-  margin: 0 0 0.5 2.5rem;
-}
-.full.height > .enroll .ui.menu {
-  border-radius: 0;
-  border-width: 0 1px 0 0;
-  box-shadow: none;
-  margin: 0;
-  width: inherit;
-  overflow: hidden;
-  will-change: transform;
 }
 .article {
   -webkit-box-flex: 1;
@@ -57,13 +46,12 @@
           flex: 1 1 auto;
   min-width: 0px;
   padding-left: 300px;
-  padding-right: 400px;
+  display: flex;
+  .content {
+    width: 75%;
+  }
 }
-// .article {
-//   background: url('http://f.ptcdn.info/092/016/000/1393381128-chomkaset2-o.jpg') fixed;
-//   background-size: cover;
-//   padding: 0;
-//   margin: 0;
-//   background-position: center;
-//   background-repeat: no-repeat;
-// }
+i.readmore:hover {
+  opacity: 1;
+  color: #ffb70a !important;
+}

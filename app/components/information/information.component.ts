@@ -7,7 +7,8 @@ import { UserService } from '../../shared/services/user.service'
 
 @Component({
 	selector: 'information',
-	templateUrl: 'build/views/information.component.html'
+	templateUrl: 'build/views/information.component.html',
+	styleUrls: ['build/styles/information.component.css']
 })
 
 export class InformationComponent implements OnInit {
