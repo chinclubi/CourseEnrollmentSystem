@@ -23,7 +23,7 @@ export class RegistrationComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		this.courses = this.courseService.getCourse()
+		this.courses = this.courseService.getCourses()
 		this.isEmpty = false
 	}
 
