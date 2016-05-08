@@ -1,25 +1,14 @@
 search-bar([keywords]="keywords", (onChange)="onKeywordChange($event)")
 .ui.basic.segment#content
-	.ui.one.cards.stackable
-		.card(*ngFor="let course of courses | search:keywords")
+	.ui.two.cards.stackable
+		a.ui.card(*ngFor="let course of courses | search:keywords", (click)="goToCourse(course.id)")
 			.content
 				.header
 					| {{course.name}}
 				.meta {{course.id}}
-				.description
-					span.ellipsis-2lines {{course.description}}
-			.ui.bottom.attached.buttons
-				button.ui.button
-					i.add.icon
-					| Edit
-				button.ui.button
-					i.add.icon
-					| Add
 	.ui.info.icon.message([ngClass]="{hidden: isEmpty}")
 		i.inbox.icon
 		.content
 			.header
 				| Cannot find your coures?
-			ul.list
-				li Try to search with course's name?
-				li Try to search with course's id? 
+			| Try to search with course's name!!!

@@ -10,7 +10,7 @@ import { UserService } from '../../services/user.service';
 })
 
 export class SidebarComponent implements OnInit {
-	currentUser: User;
+	currentUser: User
 
 	constructor(
 		private router: Router,

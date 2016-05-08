@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core'
+import { Router } from '@angular/router-deprecated';
 
 import { Course } from '../../shared/class/course'
 import { CourseService } from '../../shared/services/course.service'
@@ -19,7 +20,8 @@ export class RegistrationComponent implements OnInit {
 	keywords: string
 	isEmpty: boolean
 	constructor(
-		private courseService: CourseService
+		private courseService: CourseService,
+		private router: Router
 	) {}
 
 	ngOnInit() {
@@ -29,5 +31,10 @@ export class RegistrationComponent implements OnInit {
 
 	onKeywordChange(keyword) {
 		this.keywords = keyword
+	}
+
+	goToCourse(id) {
+		let link = ['Course', {id: id}]
+		this.router.navigate(link)
 	}
 }
