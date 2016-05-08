@@ -1,73 +1,74 @@
-.ui.basic.segment(*ngIf="course")
-	.ui.masthead.vertical.segment
+.context
+	.ui.basic.segment(*ngIf="course")
+		.ui.masthead.vertical.segment
+			.ui.basic.segment
+				h1.ui.header {{course.name}}
+					.sub.header {{course.id}}
 		.ui.basic.segment
-			h1.ui.header {{course.name}}
-				.sub.header {{course.id}}
-	.ui.basic.segment
-		.ui.grid
-			.row.one.column 
-				.column
-					h2.ui.header Course Information
-			.row.three.column
-				.column 
-					h3.ui.header {{course.id}}
-						.sub.header Course Code
-				.column 
-					h3.ui.header(*ngIf="course.credit.self") {{course.credit.total}} ({{course.credit.lecture}}-{{course.credit.lab}}-{{course.credit.self}})
-						.sub.header Credit
-					h3.ui.header(*ngIf="!course.credit.self") {{course.credit.total}} (0-0-0)
-						.sub.header Credit
-				.column(*ngIf="course.prereq.length != 0") 
-					h4.ui.header Prerequisite
-					.ui.vertical.basic.buttons
-						.ui.button(*ngFor=("let pre of course.prereq"), (click)="goToCourse(pre.id)")
-							i.external.icon 
-							| {{pre.id}}
-			.row.one.column
-				.column 
-					h2.ui.header Course Description
-			.row.one.column
-				.column {{course.description}}
-			.row.one.column
-				.column 
-					h2.ui.header Sections
-			.row.one.column
-				.column
-					.ui.two.cards.stackable.sections(*ngIf=("course.sections"))
-						.ui.pink.card.burring.section(*ngFor=("let sec of course.sections; let i = index"))
-							.content
-								.header {{sec.id}}
-								.meta
-									span.right.floated.time
-										i.marker.icon
-										| {{sec.location}}
-									span.category {{sec.type}}
-								.description 
-									i.calendar.icon
-									| {{sec.date}}
-							.extra.content
-								.right.floated.author(*ngFor=("let instructor of sec.instructors; let idx = index"))
-									img.ui.avatar.image(src="assets/imgs/avatar/{{i+(idx)}}.jpg")
-									| {{instructor}}
-								span
-									i.user.icon
-									| {{sec.enrolled}} / {{sec.accept}}
-							.ui.bottom.attached.button.enroll(*ngIf="!isEnroll(sec)")
-								i.add.icon
-								| Enroll
-							.ui.bottom.attached.button.enroll.disabled(*ngIf="isEnroll(sec)")
-								i.add.icon
-								| Enrolled
-							.ui.flowing.popup.top.left.transition.hidden.onEnable
-								.ui.one.column.center.aligned.grid(*ngIf="canEnroll(sec)")
-									.column
-										.ui.header Please select enroll type.
-										.ui.form
-											.field
-												select.ui.fluid.dropdown([ngModel]="selectedType")
-													option([value]="o", *ngFor="let o of typeArray") {{o.name}}
-										p
-										.ui.green.button.fluid((click)="enrollCourse(sec)") Submit
-								div(*ngIf="!canEnroll(sec)") Your credit was exceeded!
-					.ui.negative.massive.message(*ngIf=("!course.sections"))
-						| Course not offered this semester.
+			.ui.grid
+				.row.one.column 
+					.column
+						h2.ui.header Course Information
+				.row.three.column
+					.column 
+						h3.ui.header {{course.id}}
+							.sub.header Course Code
+					.column 
+						h3.ui.header(*ngIf="course.credit.self") {{course.credit.total}} ({{course.credit.lecture}}-{{course.credit.lab}}-{{course.credit.self}})
+							.sub.header Credit
+						h3.ui.header(*ngIf="!course.credit.self") {{course.credit.total}} (0-0-0)
+							.sub.header Credit
+					.column(*ngIf="course.prereq.length != 0") 
+						h4.ui.header Prerequisite
+						.ui.vertical.basic.buttons
+							.ui.button(*ngFor=("let pre of course.prereq"), (click)="goToCourse(pre.id)")
+								i.external.icon 
+								| {{pre.id}}
+				.row.one.column
+					.column 
+						h2.ui.header Course Description
+				.row.one.column
+					.column {{course.description}}
+				.row.one.column
+					.column 
+						h2.ui.header Sections
+				.row.one.column
+					.column
+						.ui.two.cards.stackable.sections(*ngIf=("course.sections"))
+							.ui.pink.card.burring.section(*ngFor=("let sec of course.sections; let i = index"))
+								.content
+									.header {{sec.id}}
+									.meta
+										span.right.floated.time
+											i.marker.icon
+											| {{sec.location}}
+										span.category {{sec.type}}
+									.description 
+										i.calendar.icon
+										| {{sec.date}}
+								.extra.content
+									.right.floated.author(*ngFor=("let instructor of sec.instructors; let idx = index"))
+										img.ui.avatar.image(src="assets/imgs/avatar/{{i+(idx)}}.jpg")
+										| {{instructor}}
+									span
+										i.user.icon
+										| {{sec.enrolled}} / {{sec.accept}}
+								.ui.bottom.attached.button.enroll(*ngIf="!isEnroll(sec)")
+									i.add.icon
+									| Enroll
+								.ui.bottom.attached.button.enroll.disabled(*ngIf="isEnroll(sec)")
+									i.add.icon
+									| Enrolled
+								.ui.flowing.popup.top.left.transition.hidden.onEnable
+									.ui.one.column.center.aligned.grid(*ngIf="canEnroll(sec)")
+										.column
+											.ui.header Please select enroll type.
+											.ui.form
+												.field
+													select.ui.fluid.dropdown([ngModel]="selectedType")
+														option([value]="o", *ngFor="let o of typeArray") {{o.name}}
+											p
+											.ui.green.button.fluid((click)="enrollCourse(sec)") Submit
+									div(*ngIf="!canEnroll(sec)") Your credit was exceeded!
+						.ui.negative.massive.message(*ngIf=("!course.sections"))
+							| Course not offered this semester.

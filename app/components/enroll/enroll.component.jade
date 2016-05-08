@@ -1,61 +1,52 @@
-.ui.vertical.segment
-	h1.ui.header.orange
+.ui.vertical.segment.sticky
+	h3.ui.header.orange
 		| Enrolled
-		.sub.header Manage your courses.
+	p Academic Year 2016 First Semester
+	p 
+		b {{credit.credit}}
+		|	/ 23 Credit
 	.ui.one.cards.stackable.sections
-		.ui.pink.card.burring.section
+		.ui.card.burring.section(*ngFor="let enroll of enrollList")
 			.content
-				.header 01234456
+				i.link.right.floated.large.icon.ellipsis.vertical((click)="goToCourse(enroll.course.id)")
+				.header {{enroll.course.id}}
 				.meta
-					span.right.floated.time
-						i.marker.icon
-						| XXXX
-					span.category XXXX
-				.description 
-					i.calendar.icon
-					| XXXX
-			.extra.content
-				.right.floated.author
-					img.ui.avatar.image(src="assets/imgs/avatar/1.jpg")
-					| xxxxx
-				span
-					i.user.icon
-					| 1 / 1
-	.ui.one.cards.stackable.sections
-		.ui.pink.card.burring.section
-			.content
-				.header 01234456
+					span.category {{enroll.course.name}}
+			.extra.content(*ngIf="enroll.sec.lab.id!=''")
+				.right.floated.content
+					.ui.button.icon.red Drop
+				.header
+					.ui.four.column.grid(style='display: block;')
+						.column(style='padding-bottom: 0')
+							| {{enroll.sec.lab.id}} 
+						.column(style='padding-bottom: 0')
+							| {{enroll.type}} 
+						.column(style='padding-bottom: 0')
+							| {{enroll.sec.lab.credit}}	
 				.meta
-					span.right.floated.time
-						i.marker.icon
-						| XXXX
-					span.category XXXX
-				.description 
-					i.calendar.icon
-					| XXXX
-			.extra.content
-				.right.floated.author
-					img.ui.avatar.image(src="assets/imgs/avatar/1.jpg")
-					| xxxxx
-				span
-					i.user.icon
-					| 1 / 1
-	.ui.one.cards.stackable.sections
-		.ui.pink.card.burring.section
-			.content
-				.header 01234456
+					.ui.four.column.grid(style='display: block;')
+						.column(style='padding-bottom: 0')
+							| {{enroll.sec.lab.type}}
+						.column(style='padding-bottom: 0')
+							| Type
+						.column(style='padding-bottom: 0')
+							| Credit 
+			.extra.content(*ngIf="enroll.sec.lecture.id!=''")
+				.right.floated.content
+					.ui.button.icon.red Drop
+				.header
+					.ui.four.column.grid(style='display: block;')
+						.column(style='padding-bottom: 0')
+							| {{enroll.sec.lecture.id}} 
+						.column(style='padding-bottom: 0')
+							| {{enroll.type}} 
+						.column(style='padding-bottom: 0')
+							| {{enroll.sec.lecture.credit}}	
 				.meta
-					span.right.floated.time
-						i.marker.icon
-						| XXXX
-					span.category XXXX
-				.description 
-					i.calendar.icon
-					| XXXX
-			.extra.content
-				.right.floated.author
-					img.ui.avatar.image(src="assets/imgs/avatar/1.jpg")
-					| xxxxx
-				span
-					i.user.icon
-					| 1 / 1
+					.ui.four.column.grid(style='display: block;')
+						.column(style='padding-bottom: 0')
+							| {{enroll.sec.lecture.type}}
+						.column(style='padding-bottom: 0')
+							| Type
+						.column(style='padding-bottom: 0')
+							| Credit 

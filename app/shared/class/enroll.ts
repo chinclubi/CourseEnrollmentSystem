@@ -6,6 +6,7 @@ interface course {
 interface secDetail {
 	id: string,
 	credit: number,
+	type: string,
 	instructors: Array<string>,
 	location: string,
 	date: string

@@ -68,6 +68,9 @@ export class CourseComponent implements OnInit, AfterViewInit {
 		} else if(sec.type === 'Lab'){
 			credit = +this.course.credit.lab
 		}
+		if(!credit){
+			credit = +this.course.credit.total
+		}
 		var course = {
 			id: this.course.id,
 			name: this.course.name
