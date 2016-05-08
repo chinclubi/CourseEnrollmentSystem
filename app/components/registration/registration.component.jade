@@ -1,5 +1,6 @@
-search-bar([keywords]="keywords", (onChange)="onKeywordChange($event)")
-.ui.basic.segment
+.ui.masthead.vertical.segment
+	search-bar([keywords]="keywords", (onChange)="onKeywordChange($event)")
+.ui.basic.segment.courselist
 	.ui.two.cards.stackable
 		a.ui.card(*ngFor="let course of courses | search:keywords", (click)="goToCourse(course.id)")
 			.content

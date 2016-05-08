@@ -13,9 +13,9 @@ export class SearchBarComponent implements AfterViewInit {
 	constructor(private elRef: ElementRef) {}
 
 	ngAfterViewInit(): any {
-		jQuery(this.elRef.nativeElement).find('.ui.sticky').sticky({
-			context: '#content'
-		})
+		// jQuery(this.elRef.nativeElement).find('.ui.sticky').sticky({
+		// 	context: '#content'
+		// })
 	}
 
 	onChange(keyword) {

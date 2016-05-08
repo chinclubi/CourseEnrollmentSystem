@@ -1,26 +1,16 @@
-.visibility.example .overlay {
-  background-color: #FFFFFF;
-  padding: 0em;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-  transition: all 0.5s ease;
-  background: transparent;
+.masthead.segment {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    height: 7em;
+    margin: 0 400px 0 300px;
+    padding: 2em 2em 1em 2em;
+    border-bottom: 1px solid #DDDDDD;
+    box-shadow: none;
+    background: #FDFFFC;
 }
-/* change style */
-.visibility.example .fixed.overlay {
-  position: fixed;
-  padding: 1em;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
-}
-.block-ellipsis {
-  display: block;
-  display: -webkit-box;
-  max-width: 100%;
-  height: 3.9rem;
-  margin: 0 auto;
-  font-size: 1rem;
-  line-height: 1.3rem;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.courselist {
+  padding-top: 8rem;
 }
