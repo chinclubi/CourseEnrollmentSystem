@@ -17,8 +17,14 @@ export class CourseService {
 			})
 	}
 
-	getCourse() {
+	getCourses() {
 		return this.courses
+	}
+
+	getCourse(id: string) {
+		return Promise.resolve(this.courses).then(
+			courses => courses.filter(course => course.id === id)[0]
+		)
 	}
  
 	loadCourses(): Observable<Course[]> {

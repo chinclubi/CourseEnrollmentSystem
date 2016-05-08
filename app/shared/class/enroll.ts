@@ -1,6 +1,7 @@
 export class Enroll {
 	constructor(
-		public courseId: string,
-		public secId: string
+		public course: any,
+		public sec: any,
+		public type: string
 	) { }
 }
