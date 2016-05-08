@@ -67,7 +67,7 @@
 												select.ui.fluid.dropdown([ngModel]="selectedType")
 													option([value]="o", *ngFor="let o of typeArray") {{o.name}}
 										p
-										.ui.button((click)="enrollCourse(sec)") Submit
+										.ui.green.button.fluid((click)="enrollCourse(sec)") Submit
 								div(*ngIf="!canEnroll(sec)") Your credit was exceeded!
 					.ui.negative.massive.message(*ngIf=("!course.sections"))
 						| Course not offered this semester.

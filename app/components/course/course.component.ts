@@ -62,14 +62,26 @@ export class CourseComponent implements OnInit, AfterViewInit {
 	}
 
 	enrollCourse(sec) {
-		console.log(sec)
+		var credit = 0
+		if(sec.type === 'Lecture'){
+			credit = +this.course.credit.lecture
+		} else if(sec.type === 'Lab'){
+			credit = +this.course.credit.lab
+		}
 		var course = {
 			id: this.course.id,
-			credit: this.course.credit.total
+			name: this.course.name
 		}
-		var enroll = new Enroll(course, sec, this.selectedType.name)
+		var _sec = {
+			id: sec.id,
+			credit: credit,
+			type: sec.type,
+			instructors: sec.instructors,
+			location: sec.location,
+			date: sec.date
+		}
 		this.popup.popup('hide all')
-		this.enrollService.enroll(enroll)
+		this.enrollService.enroll(course, _sec, this.selectedType.name)
 	}
 
 	canEnroll(sec){

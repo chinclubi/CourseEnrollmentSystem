@@ -6,17 +6,19 @@ import { RegistrationComponent } from '../registration/registration.component'
 import { LoginComponent }	from '../login/login.component'
 import { SidebarComponent }  from '../../shared/directives/sidebar/sidebar.component'
 import { EnrollComponent } from '../enroll/enroll.component'
+import { CourseComponent } from '../course/course.component'
 
 import { User } from '../../shared/class/user'
 import { UserService } from '../../shared/services/user.service'
 import { CourseService } from '../../shared/services/course.service'
+import { EnrollService } from '../../shared/services/enroll.service'
 
 @Component({
 	selector: 'hci-app',
 	templateUrl: 'build/views/home.component.html',
 	styleUrls: ['build/styles/home.component.css'],
 	directives: [ROUTER_DIRECTIVES, LoginComponent, SidebarComponent, EnrollComponent],
-	providers: [ROUTER_PROVIDERS, UserService, CourseService]
+	providers: [ROUTER_PROVIDERS, UserService, CourseService, EnrollService]
 })
 
 @RouteConfig([
@@ -31,10 +33,15 @@ import { CourseService } from '../../shared/services/course.service'
 	component: InformationComponent
 },
 {
-	path: '/courses',
+	path: '/course',
 	name: 'Registration',
 	component: RegistrationComponent,
 	useAsDefault: true
+},
+{
+	path: '/course/:id',
+	name: 'Course',
+	component: CourseComponent
 }
 ])
 
