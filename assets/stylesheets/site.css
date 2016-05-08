@@ -5,6 +5,3 @@ html, body {
 body {
 	overflow-y: scroll;
 }
-.ui.grid {
-	height: 100%;
-}
