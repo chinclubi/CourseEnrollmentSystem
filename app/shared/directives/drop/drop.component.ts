@@ -1,6 +1,7 @@
 import { Component, Input, AfterViewInit, ElementRef } from '@angular/core'
 
 import { Course } from '../../class/course'
+import { EnrollService } from '../../services/enroll.service'
 
 declare var jQuery: any
 
@@ -9,20 +10,18 @@ declare var jQuery: any
 	templateUrl: 'build/views/drop.component.html'
 })
 
-export class DropComponent implements AfterViewInit {
-	popup: any
-	course: Course
-	constructor(private elRef: ElementRef) { }
+export class DropComponent {
+	@Input() course: string
+	@Input() section: string
+	@Input() type: string
+	constructor(private elRef: ElementRef,
+		private enrollService: EnrollService
+	) { }
 
-	ngAfterViewInit(): any {
-		this.popup = jQuery(this.elRef.nativeElement).find('.popupToCourse')
-			.modal({
-				blurring: true
-			})
-	}
-
-	onClick(course) {
-		this.popup.modal('show')
-		this.course = course
+	onClick() {
+		console.log(this.course)
+		console.log(this.section)
+		console.log(this.type)
+		this.enrollService.drop(this.course, this.section, this.type)
 	}
 }

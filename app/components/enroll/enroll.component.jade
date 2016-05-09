@@ -4,7 +4,7 @@
 	p Academic Year 2016 First Semester
 	p 
 		b {{credit.credit}}
-		|	/ 23 Credit
+		|	/ 22 Credit
 	.ui.one.cards.stackable.sections
 		.ui.card.burring.section(*ngFor="let enroll of enrollList")
 			.content
@@ -14,7 +14,7 @@
 					span.category {{enroll.course.name}}
 			.extra.content(*ngIf="enroll.sec.lab.id!=''")
 				.right.floated.content
-					drop-btn
+					drop-btn(course="{{enroll.course.id}}", section="{{enroll.sec.lab.id}}", type="lab")
 				.header
 					.ui.four.column.grid(style='display: block;')
 						.column(style='padding-bottom: 0')
@@ -33,7 +33,7 @@
 							| Credit 
 			.extra.content(*ngIf="enroll.sec.lecture.id!=''")
 				.right.floated.content
-					.ui.button.icon.red Drop
+					drop-btn(course="{{enroll.course.id}}", section="{{enroll.sec.lecture.id}}", type="lecture")
 				.header
 					.ui.four.column.grid(style='display: block;')
 						.column(style='padding-bottom: 0')
