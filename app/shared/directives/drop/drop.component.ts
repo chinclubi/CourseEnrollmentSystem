@@ -5,11 +5,11 @@ import { Course } from '../../class/course'
 declare var jQuery: any
 
 @Component({
-	selector: 'popup',
-	templateUrl: 'build/views/popup.component.html'
+	selector: 'drop-btn',
+	templateUrl: 'build/views/drop.component.html'
 })
 
-export class PopupComponent implements AfterViewInit {
+export class DropComponent implements AfterViewInit {
 	popup: any
 	course: Course
 	constructor(private elRef: ElementRef) { }
