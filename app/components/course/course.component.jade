@@ -53,20 +53,18 @@
 									span
 										i.user.icon
 										| {{sec.enrolled}} / {{sec.accept}}
-								.ui.bottom.attached.button.enroll(*ngIf="!isEnroll(sec)")
+								.ui.bottom.attached.button.enroll([ngClass]="{disabled: isEnroll(sec)}")
 									i.add.icon
-									| Enroll
-								.ui.bottom.attached.button.enroll.disabled(*ngIf="isEnroll(sec)")
-									i.add.icon
-									| Enrolled
+									span(*ngIf="!isEnroll(sec)") Enroll
+									span(*ngIf="isEnroll(sec)") Enrolled
 								.ui.flowing.popup.top.left.transition.hidden.onEnable
 									.ui.one.column.center.aligned.grid(*ngIf="canEnroll(sec)")
 										.column
 											.ui.header Please select enroll type.
 											.ui.form
 												.field
-													select.ui.fluid.dropdown([ngModel]="selectedType")
-														option([value]="o", *ngFor="let o of typeArray") {{o.name}}
+													select.ui.fluid.dropdown([(ngModel)]="selectedType")
+														option(*ngFor="let o of typeArray") {{o.name}}
 											p
 											.ui.green.button.fluid((click)="enrollCourse(sec)") Submit
 									div(*ngIf="!canEnroll(sec)") Your credit was exceeded!
