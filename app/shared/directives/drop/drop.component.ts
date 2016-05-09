@@ -10,7 +10,7 @@ declare var jQuery: any
 	templateUrl: 'build/views/drop.component.html'
 })
 
-export class DropComponent {
+export class DropComponent implements AfterViewInit {
 	@Input() course: string
 	@Input() section: string
 	@Input() type: string
@@ -18,10 +18,19 @@ export class DropComponent {
 		private enrollService: EnrollService
 	) { }
 
+	ngAfterViewInit() {
+		jQuery(this.elRef.nativeElement).find('.drop').popup({
+			on: 'click',
+			inline: true,
+			position: 'bottom center',
+			delay: {
+				show: 300,
+				hide: 800
+			}
+		})
+	}
+
 	onClick() {
-		console.log(this.course)
-		console.log(this.section)
-		console.log(this.type)
 		this.enrollService.drop(this.course, this.section, this.type)
 	}
 }

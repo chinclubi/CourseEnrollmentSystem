@@ -23,7 +23,7 @@ interface SelectEnrollType {
 export class CourseComponent implements OnInit, AfterViewInit {
 	@Input() course: Course
 	typeArray: SelectEnrollType[]
-	selectedType: SelectEnrollType
+	selectedType: any
 	popup: any
 	isAlready: boolean
 	constructor(
@@ -85,7 +85,11 @@ export class CourseComponent implements OnInit, AfterViewInit {
 			date: sec.date
 		}
 		this.popup.popup('hide all')
-		this.enrollService.enroll(course, _sec, this.selectedType)
+		if (typeof this.selectedType === 'string'){
+			this.enrollService.enroll(course, _sec, this.selectedType)
+		} else {
+			this.enrollService.enroll(course, _sec, this.selectedType.name)
+		}
 	}
 
 	canEnroll(sec){

@@ -1,7 +1,9 @@
-.ui.button.icon.red((click)="onClick()") Drop
+.ui.button.icon.red.drop Drop
 .ui.flowing.popup.bottom.center.transition
 	.ui.one.column.center.aligned.grid
 		.column
 			.ui.header Confirm to drop this course?
 			p
-			.ui.button Confirm
+			.ui.button.basic.red.fluid((click)="onClick()") 
+				i.remove.icon
+				| Confirm
