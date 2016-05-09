@@ -40,7 +40,6 @@ export class EnrollComponent implements OnInit, AfterViewInit {
 	}
 
 	goToCourse(id) {
-		console.log(id)
 		this.router.navigate(['Course', {id: id}])
 	}
 
