@@ -1,4 +1,13 @@
-.ui.center.aligned
-	.ui.transparent.massive.icon.input.fluid
-		input(type="text", placeholder="Search for Courses...", [(ngModel)]="keywords", (ngModelChange)="onChange($event)")
-		i.search.link.icon
+.ui.grid
+	.column.sixteen.wide
+		.ui.center.aligned
+			.ui.massive.icon.input.fluid
+				input(type="text", placeholder="Search for Courses", [(ngModel)]="keywords", (ngModelChange)="onChange($event)")
+				i.search.link.icon.inverted.circular.black
+	.column.eight.wide.right.floated.right.aligned
+		button.ui.floating.dropdown.labeled.icon.button.green
+			i.filter.icon
+			span.text Filter Courses
+		button.ui.floating.dropdown.labeled.icon.button.green
+			i.sort.content.descending.icon
+			span.text Sort By

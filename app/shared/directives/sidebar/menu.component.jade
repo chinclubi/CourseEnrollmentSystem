@@ -6,7 +6,7 @@
 		a.item((click)="goToRegistration()", [ngClass]="{active: router.isRouteActive(router.generate(['/Registration']))}")
 			i.browser.icon
 			| Browse Courses
-		a.item 
+		a.item((click)="exportJson()")
 			i.code.icon
 			| Export JSON
 	.ui.basic.segment(style="position: absolute; bottom: 0px; width: 100%;")

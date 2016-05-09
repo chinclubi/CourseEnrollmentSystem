@@ -9,7 +9,7 @@
 }
 .full.height > .toc {
   position: fixed;
-  z-index: 9999;
+  z-index: 999;
   background-color: #2B2D42;
   width: 300px;
   -webkit-box-flex: 0;
@@ -28,7 +28,7 @@
   will-change: transform;
 }
 .article .enroll {
-  z-index: 9999;
+  z-index: 999;
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
