@@ -37,7 +37,7 @@ export class CourseComponent implements OnInit, AfterViewInit {
 		this.courseService.getCourse(id).then(course => {
 			this.course = course
 		})
-		this.typeArray = [{name: 'Credit', value: 'C'}, {name: 'Audit', value: 'A'}]
+		this.typeArray = [{ name: 'Credit', value: 'C' }, { name: 'Audit', value: 'A' }]
 		this.selectedType = this.typeArray[0]
 		this.isAlready = false
 	}
@@ -56,13 +56,10 @@ export class CourseComponent implements OnInit, AfterViewInit {
 			})
 			this.isAlready = true
 		}
+		console.log('AfterViewInit')
 	}
 
 	ngOnInit() {
-		// var id = this.routeParams.get('id')
-		// this.courseService.getCourse(id).then(course => {
-		// 	this.course = course
-		// })
 	}
 
 	enrollCourse(sec) {
@@ -88,7 +85,7 @@ export class CourseComponent implements OnInit, AfterViewInit {
 			date: sec.date
 		}
 		this.popup.popup('hide all')
-		this.enrollService.enroll(course, _sec, this.selectedType.name)
+		this.enrollService.enroll(course, _sec, this.selectedType)
 	}
 
 	canEnroll(sec){
@@ -117,7 +114,7 @@ export class CourseComponent implements OnInit, AfterViewInit {
 		window.history.back();
 	}
 
-	stringify(o: any): string {
-		return JSON.stringify(o);
+	onChangeSelect() {
+		console.log(this.selectedType)
 	}
 }
