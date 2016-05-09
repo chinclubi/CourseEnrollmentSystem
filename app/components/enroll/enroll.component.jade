@@ -5,7 +5,9 @@
 	p 
 		b {{credit.credit}}
 		|	/ 22 Credit
-	.ui.one.cards.stackable.sections
+	.ui.info.message.massive(*ngIf="enrollList.length==0")
+		.header Empty!
+	.ui.one.cards.stackable.sections(*ngIf="enrollList.length!=0")
 		.ui.card.burring.section(*ngFor="let enroll of enrollList")
 			.content
 				i.link.right.floated.large.icon.ellipsis.vertical((click)="goToCourse(enroll.course.id)")
