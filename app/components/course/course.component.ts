@@ -25,6 +25,7 @@ export class CourseComponent implements OnInit, AfterViewInit {
 	typeArray: SelectEnrollType[]
 	selectedType: SelectEnrollType
 	popup: any
+	isAlready: boolean
 	constructor(
 		private enrollService: EnrollService,
 		private courseService: CourseService,
@@ -38,20 +39,23 @@ export class CourseComponent implements OnInit, AfterViewInit {
 		})
 		this.typeArray = [{name: 'Credit', value: 'C'}, {name: 'Audit', value: 'A'}]
 		this.selectedType = this.typeArray[0]
+		this.isAlready = false
 	}
 	
 	ngAfterViewInit(): any {
-		this.popup = jQuery(this.elRef.nativeElement).find('.enroll')
-		this.popup.popup({
-			on: 'click',
-			inline: true,
-			position: 'bottom center',
-			delay: {
-				show: 300,
-				hide: 800
-			}
-		})
-		// jQuery(this.elRef.nativeElement).find('.select.dropdown').dropdown()
+		if(!this.isAlready){
+			this.popup = jQuery(this.elRef.nativeElement).find('.enroll')
+			this.popup.popup({
+				on: 'click',
+				inline: true,
+				position: 'bottom center',
+				delay: {
+					show: 300,
+					hide: 800
+				}
+			})
+			this.isAlready = true
+		}
 	}
 
 	ngOnInit() {
