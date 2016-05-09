@@ -1,9 +1,4 @@
 .ui(*ngIf="currentUser.isLogin")
-	.ui.secondary.vertical.menu(style="width:100%;")
-		.item
-			.ui.inverted.massive.icon.input
-				input(type="text", placeholder="Search Courses")
-				i.search.icon
 	.ui.secondary.vertical.menu.inverted(style="width:100%;")
 		a.item((click)="goToInformation()", [ngClass]="{active: router.isRouteActive(router.generate(['/Information']))}")
 			i.info.circle.icon 
