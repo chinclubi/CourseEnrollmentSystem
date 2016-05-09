@@ -3,6 +3,7 @@ import { Router } from '@angular/router-deprecated'
 
 import { Course } from '../../shared/class/course'
 import { CourseService } from '../../shared/services/course.service'
+import { SearchService } from '../../shared/services/search.service'
 
 import { SearchBarComponent}  from '../../shared/directives/sticky/search.component'
 import { SearchPipe } from '../../shared/filters/search.filter'
@@ -24,6 +25,7 @@ export class RegistrationComponent implements OnInit {
 	isLonger: boolean
 	constructor(
 		private courseService: CourseService,
+		private searchService: SearchService,
 		private router: Router,
 		private elRef: ElementRef
 	) {
@@ -62,6 +64,7 @@ export class RegistrationComponent implements OnInit {
 	goToCourse(id) {
 		let link = ['Course', {id: id}]
 		this.router.navigate(link)
+		this.searchService.setKey(this.keywords)
 	}
 
 	onResize($event) {

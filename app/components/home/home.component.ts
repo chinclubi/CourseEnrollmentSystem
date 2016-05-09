@@ -12,13 +12,14 @@ import { User } from '../../shared/class/user'
 import { UserService } from '../../shared/services/user.service'
 import { CourseService } from '../../shared/services/course.service'
 import { EnrollService } from '../../shared/services/enroll.service'
+import { SearchService } from '../../shared/services/search.service'
 
 @Component({
 	selector: 'hci-app',
 	templateUrl: 'build/views/home.component.html',
 	styleUrls: ['build/styles/home.component.css'],
 	directives: [ROUTER_DIRECTIVES, LoginComponent, SidebarComponent, EnrollComponent],
-	providers: [ROUTER_PROVIDERS, UserService, CourseService, EnrollService]
+	providers: [ROUTER_PROVIDERS, UserService, CourseService, EnrollService, SearchService]
 })
 
 @RouteConfig([

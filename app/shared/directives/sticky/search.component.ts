@@ -1,4 +1,6 @@
-import { Component, ElementRef, AfterViewInit, EventEmitter, Output } from '@angular/core'
+import { Component, ElementRef, EventEmitter, Output, OnInit } from '@angular/core'
+
+import { SearchService } from '../../services/search.service'
 
 declare var jQuery:any
 
@@ -7,15 +9,16 @@ declare var jQuery:any
 	templateUrl: 'build/views/search.component.html'
 })
 
-export class SearchBarComponent implements AfterViewInit {
-	keyword:string
+export class SearchBarComponent implements OnInit {
+	keywords:string
 	@Output('onChange') keywordChange = new EventEmitter();
-	constructor(private elRef: ElementRef) {}
+	constructor(private elRef: ElementRef,
+		private searchService: SearchService) {
+		this.keywords = this.searchService.getKey()
+	}
 
-	ngAfterViewInit(): any {
-		// jQuery(this.elRef.nativeElement).find('.ui.sticky').sticky({
-		// 	context: '#content'
-		// })
+	ngOnInit() {
+		this.keywordChange.emit(this.keywords)
 	}
 
 	onChange(keyword) {

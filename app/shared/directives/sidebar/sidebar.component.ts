@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router-deprecated';
+import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router-deprecated'
 
-import { User } from '../../class/user';
-import { UserService } from '../../services/user.service';
+import { User } from '../../class/user'
+import { UserService } from '../../services/user.service'
+import { SearchService } from '../../services/search.service'
 
 @Component({
 	selector: 'sidebar',
@@ -14,7 +15,8 @@ export class SidebarComponent implements OnInit {
 
 	constructor(
 		private router: Router,
-		private userService: UserService) { }
+		private userService: UserService,
+		private searchService: SearchService) { }
 
 	ngOnInit() {
 		this.currentUser = this.userService.getUser()
@@ -40,6 +42,7 @@ export class SidebarComponent implements OnInit {
 	}
 
 	goToRegistration() {
+		this.searchService.clear()
 		this.router.navigate(['Registration', {}]);
 	}
 }
