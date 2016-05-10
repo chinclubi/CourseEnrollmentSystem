@@ -3,7 +3,7 @@
 		.toc
 			sidebar
 		.article#content
-			.content
+			.content([ngClass]="{bg: router.isRouteActive(router.generate(['/Login']))}")
 				router-outlet
-			.enroll
+			.enroll(*ngIf="!router.isRouteActive(router.generate(['/Login']))")
 				enroll-sidebar
