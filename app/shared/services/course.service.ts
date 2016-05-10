@@ -28,7 +28,7 @@ export class CourseService {
 	}
  
 	loadCourses(): Observable<Course[]> {
-		return this.http.get('http://localhost:3000/assets/courses.json')
+		return this.http.get('./assets/courses.json')
 			.map(this.extractData)
 			.catch(this.handleError)
 	}

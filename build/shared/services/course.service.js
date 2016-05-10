@@ -28,7 +28,7 @@ var CourseService = (function () {
         return Promise.resolve(this.courses).then(function (courses) { return courses.filter(function (course) { return course.id === id; })[0]; });
     };
     CourseService.prototype.loadCourses = function () {
-        return this.http.get('http://localhost:3000/assets/courses.json')
+        return this.http.get('./assets/courses.json')
             .map(this.extractData)
             .catch(this.handleError);
     };

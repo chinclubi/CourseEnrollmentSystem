@@ -43,7 +43,6 @@ var CourseComponent = (function () {
             });
             this.isAlready = true;
         }
-        console.log('AfterViewInit');
     };
     CourseComponent.prototype.ngOnInit = function () {
     };

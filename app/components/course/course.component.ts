@@ -56,7 +56,6 @@ export class CourseComponent implements OnInit, AfterViewInit {
 			})
 			this.isAlready = true
 		}
-		console.log('AfterViewInit')
 	}
 
 	ngOnInit() {
