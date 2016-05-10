@@ -27,7 +27,6 @@ var HomeComponent = (function () {
         this.courseService = courseService;
     }
     HomeComponent.prototype.ngOnInit = function () {
-        core_1.enableProdMode();
         this.currentUser = this.userService.getUser();
         if (localStorage.getItem('user')) {
             var id = localStorage.getItem('user');

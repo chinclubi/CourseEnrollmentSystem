@@ -8,6 +8,7 @@ import { SearchService } from '../../services/search.service'
 import { EnrollService } from '../../services/enroll.service'
 
 declare var jQuery: any
+declare var prettyPrint: any
 
 @Component({
 	selector: 'sidebar',
