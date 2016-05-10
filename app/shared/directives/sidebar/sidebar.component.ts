@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core'
 import { Router } from '@angular/router-deprecated'
 
 import { User } from '../../class/user'
+import { Enroll } from '../../class/enroll'
 import { UserService } from '../../services/user.service'
 import { SearchService } from '../../services/search.service'
 import { EnrollService } from '../../services/enroll.service'
@@ -59,14 +60,39 @@ export class SidebarComponent implements OnInit, AfterViewInit {
 	}
 
 	exportJson(){
+		this.getEnrollData()
 		this.modalJson
 		.modal({
-			blurring: true
+			blurring: true,
+			onVisible: function(){
+				prettyPrint()
+			}
 		})
 		.modal('show')
 	}
 
 	getEnrollData() {
-		this.jsonDataString = JSON.stringify(this.enrollService.getList(), undefined, 2)
+		var tmps:any = this.enrollService.getList()
+		var _ = {
+			name: 'Chin Clu-bi',
+			student_id: this.currentUser.id,
+			enrolled: []
+		}
+		var _tmp = { course: {}, regType: '', section: [] }
+		for (var tmp of tmps){
+			_tmp = { course: tmp.course, regType: tmp.type, section: [] }
+			var sec = []
+			if(tmp.sec.lecture.id !=='') {
+				sec.push(tmp.sec.lecture)
+			}
+			if(tmp.sec.lab.id !== '') {
+				sec.push(tmp.sec.lab)
+			}
+			_tmp.section = sec
+			_.enrolled.push(_tmp)
+		}
+		// this.jsonDataString = JSON.stringify(_, undefined, 4)
+		this.jsonDataString = _
+	
 	}
 }

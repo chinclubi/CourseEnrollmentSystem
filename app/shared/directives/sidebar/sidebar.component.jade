@@ -7,7 +7,9 @@
 					.sub.header Enrollment System
 include menu.component.jade
 include signin.component.jade
-.ui.modal
+.ui.modal.long
 	.header JSON Export
 	.content
-		pre([innerHTML]="jsonDataString")
+		p User Information Data
+		pre.prettyprint.linenums.lang-css
+			| {{jsonDataString | json}}
