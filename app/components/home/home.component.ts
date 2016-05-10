@@ -1,4 +1,4 @@
-import { Component, OnInit } 	from '@angular/core'
+import { Component, OnInit, enableProdMode } 	from '@angular/core'
 import { RouteConfig, Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated'
 
 import { InformationComponent } from '../information/information.component'
@@ -55,6 +55,7 @@ export class HomeComponent implements OnInit {
 		private courseService: CourseService) { }
 
 	ngOnInit() {
+		enableProdMode()
 		this.currentUser = this.userService.getUser()
 		if (localStorage.getItem('user')) {
 			let id = localStorage.getItem('user')
