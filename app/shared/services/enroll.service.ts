@@ -8,7 +8,7 @@ export class EnrollService {
 	currentCredit: any
 
 	constructor(){
-		this.currentCredit = {credit: 26}
+		this.currentCredit = {credit: 0}
 		this.enrollList = []
 	}
 
