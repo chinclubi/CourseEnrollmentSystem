@@ -13,7 +13,7 @@ var enroll_1 = require('../class/enroll');
 var EnrollService = (function () {
     function EnrollService() {
         this.maxCredit = 22;
-        this.currentCredit = { credit: 26 };
+        this.currentCredit = { credit: 0 };
         this.enrollList = [];
     }
     EnrollService.prototype.getCredit = function () {
