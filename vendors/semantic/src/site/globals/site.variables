@@ -1,0 +1,10 @@
+/*******************************
+     User Global Variables
+*******************************/
+@black 			: #011627;
+@blue           : #247BA0;
+@olive          : #B2DBBF;
+@white          : #FFFFFF;
+@green			: #70C1B3;
+@red            : #FF1654;
+@yellow			: #F3FFBD;
