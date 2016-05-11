@@ -4,4 +4,20 @@ html, body {
 }
 body {
 	overflow-y: scroll;
+    height: 100%;
+    overflow-x: hidden;
+    padding: 0px !important;
+}
+.pusher {
+    position: relative;
+    backface-visibility: hidden;
+    overflow: hidden;
+    min-height: 100%;
+    transition: transform 500ms ease 0s;
+    z-index: 2;
+    background: inherit;
+    display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }

@@ -1,5 +1,11 @@
 .context
 	.ui.basic.segment(*ngIf="course")
+		.ui.grid
+			.row.six.column
+				.column
+					.ui.button.fluid((click)="goBack()")
+						i.history.icon
+						| Go Back
 		.ui.masthead.vertical.segment
 			.ui.basic.segment
 				h1.ui.header {{course.name}}

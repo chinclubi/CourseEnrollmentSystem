@@ -6,6 +6,9 @@
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
+  flex: auto;
+  -ms-flex: auto;
+  -webkit-flex: auto;
 }
 .full.height > .toc {
   position: fixed;
